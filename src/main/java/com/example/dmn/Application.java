@@ -18,8 +18,7 @@ public class Application implements CommandLineRunner {
   public void run(String... args) throws Exception {
 
     Map<String,Object> variables = new HashMap<>();
-    variables.put("currentSeason", "Spring");
-    variables.put("numberOfGuests", 9);
+    variables.put("age", 19);
     ProcessEngines.getDefaultProcessEngine()
         .getRuntimeService()
         .startProcessInstanceByKey("dmn-process", variables);

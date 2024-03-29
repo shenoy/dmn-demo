@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns="https://www.omg.org/spec/DMN/20191111/MODEL/" xmlns:dmndi="https://www.omg.org/spec/DMN/20191111/DMNDI/" xmlns:dc="http://www.omg.org/spec/DMN/20180521/DC/" xmlns:modeler="http://camunda.org/schema/modeler/1.0" xmlns:di="http://www.omg.org/spec/DMN/20180521/DI/" id="advertisement" name="DRD" namespace="http://camunda.org/schema/1.0/dmn" exporter="Camunda Modeler" exporterVersion="5.6.0" modeler:executionPlatform="Camunda Platform" modeler:executionPlatformVersion="7.18.0">
+  <decision id="advertDmn" name="Decision 1">
+    <informationRequirement id="InformationRequirement_16td6of">
+      <requiredInput href="#InputData_1rawddk" />
+    </informationRequirement>
+    <decisionTable id="DecisionTable_1ymbqlh" hitPolicy="COLLECT">
+      <input id="Input_1">
+        <inputExpression id="InputExpression_1" typeRef="integer">
+          <text>age</text>
+        </inputExpression>
+      </input>
+      <output id="Output_1" name="adObjects" typeRef="string" />
+      <rule id="DecisionRule_0909ws7">
+        <inputEntry id="UnaryTests_1mmzgjf">
+          <text>&gt;18</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1sg1t72">
+          <text>"Cars"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0oihjt6">
+        <inputEntry id="UnaryTests_1hq2eyx">
+          <text>&gt;12</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_09y6ho8">
+          <text>"Videogames"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1kbdkvw">
+        <inputEntry id="UnaryTests_0m7oqgp">
+          <text></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1ch8bot">
+          <text>"Toys"</text>
+        </outputEntry>
+      </rule>
+    </decisionTable>
+  </decision>
+  <inputData id="InputData_1rawddk" name="age" />
+  <dmndi:DMNDI>
+    <dmndi:DMNDiagram>
+      <dmndi:DMNShape dmnElementRef="advertDmn">
+        <dc:Bounds height="80" width="180" x="190" y="80" />
+      </dmndi:DMNShape>
+      <dmndi:DMNShape id="DMNShape_00gebpt" dmnElementRef="InputData_1rawddk">
+        <dc:Bounds height="45" width="125" x="217" y="317" />
+      </dmndi:DMNShape>
+      <dmndi:DMNEdge id="DMNEdge_0rtj4hb" dmnElementRef="InformationRequirement_16td6of">
+        <di:waypoint x="280" y="317" />
+        <di:waypoint x="280" y="180" />
+        <di:waypoint x="280" y="160" />
+      </dmndi:DMNEdge>
+    </dmndi:DMNDiagram>
+  </dmndi:DMNDI>
+</definitions>
