@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns="https://www.omg.org/spec/DMN/20191111/MODEL/" xmlns:dmndi="https://www.omg.org/spec/DMN/20191111/DMNDI/" xmlns:dc="http://www.omg.org/spec/DMN/20180521/DC/" xmlns:modeler="http://camunda.org/schema/modeler/1.0" xmlns:camunda="http://camunda.org/schema/1.0/dmn" xmlns:di="http://www.omg.org/spec/DMN/20180521/DI/" id="Dish" name="DRD" namespace="http://camunda.org/schema/1.0/dmn" exporter="Camunda Modeler" exporterVersion="5.6.0" modeler:executionPlatform="Camunda Platform" modeler:executionPlatformVersion="7.18.0">
+  <decision id="dish" name="Dish" camunda:historyTimeToLive="180">
+    <informationRequirement id="InformationRequirement_11wf7xy">
+      <requiredInput href="#currentSeason" />
+    </informationRequirement>
+    <informationRequirement id="InformationRequirement_0mo8hci">
+      <requiredInput href="#numberOfGuests" />
+    </informationRequirement>
+    <decisionTable id="DecisionTable_0krau72">
+      <input id="Input_1" label="Season">
+        <inputExpression id="InputExpression_1" typeRef="string" expressionLanguage="feel">
+          <text>currentSeason</text>
+        </inputExpression>
+      </input>
+      <input id="InputClause_18odmdg" label="How many guests">
+        <inputExpression id="LiteralExpression_1y9b6cb" typeRef="integer">
+          <text>numberOfGuests</text>
+        </inputExpression>
+      </input>
+      <output id="Output_1" label="Dish" name="desiredDish" typeRef="string" />
+      <rule id="DecisionRule_1sc4ghu">
+        <inputEntry id="UnaryTests_0voctsr">
+          <text>"Fall"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0wcx4bj">
+          <text>&lt;=8</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_03gwvas">
+          <text>"Spareribs"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0p79hye">
+        <inputEntry id="UnaryTests_17z39u8">
+          <text>"Winter"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0rdp8f0">
+          <text>&lt;=8</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1j4ks44">
+          <text>"RoastBeef"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1vhl0uh">
+        <description>Save money</description>
+        <inputEntry id="UnaryTests_088yxjb">
+          <text>"Spring"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0q5xf6t">
+          <text>&lt;=4</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_04elfha">
+          <text>"Dry Aged Gourmet Steak"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0u8u2np">
+        <description>Less effort</description>
+        <inputEntry id="UnaryTests_0nzbf0m">
+          <text>"Fall", "Winter", "Spring"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_052nkar">
+          <text>&gt;8</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0rwxwvl">
+          <text>"Stew"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_01kxutx">
+        <inputEntry id="UnaryTests_1i8v4l5">
+          <text>"Spring"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1xmww8d">
+          <text>[5..8]</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0rgn1eg">
+          <text>"Steak"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0c6sz41">
+        <description>Hey Why not ? </description>
+        <inputEntry id="UnaryTests_024kyn6">
+          <text>"Summer"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1ow3pl1">
+          <text></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1f9kib1">
+          <text>"Light Salad and nice Steak"</text>
+        </outputEntry>
+      </rule>
+    </decisionTable>
+  </decision>
+  <inputData id="currentSeason" name="currentSeason" />
+  <inputData id="numberOfGuests" name="Number of guests" />
+  <dmndi:DMNDI>
+    <dmndi:DMNDiagram>
+      <dmndi:DMNShape dmnElementRef="dish">
+        <dc:Bounds height="80" width="180" x="280" y="100" />
+      </dmndi:DMNShape>
+      <dmndi:DMNShape id="DMNShape_1p373m6" dmnElementRef="currentSeason">
+        <dc:Bounds height="45" width="125" x="157" y="337" />
+      </dmndi:DMNShape>
+      <dmndi:DMNEdge id="DMNEdge_0gdfa06" dmnElementRef="InformationRequirement_11wf7xy">
+        <di:waypoint x="220" y="337" />
+        <di:waypoint x="340" y="200" />
+        <di:waypoint x="340" y="180" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNShape id="DMNShape_1p4hvr2" dmnElementRef="numberOfGuests">
+        <dc:Bounds height="45" width="125" x="497" y="337" />
+      </dmndi:DMNShape>
+      <dmndi:DMNEdge id="DMNEdge_19c5vmk" dmnElementRef="InformationRequirement_0mo8hci">
+        <di:waypoint x="560" y="337" />
+        <di:waypoint x="400" y="200" />
+        <di:waypoint x="400" y="180" />
+      </dmndi:DMNEdge>
+    </dmndi:DMNDiagram>
+  </dmndi:DMNDI>
+</definitions>
